@@ -7,7 +7,7 @@ exit 1
 fi
 
 function _a ( ) {
-  if pacman -Qi "$1" 2>/dev/null;
+  if pacman -Qi "$1" 2>/dev/null; then
     pacman -R "$1"
   fi
 }
