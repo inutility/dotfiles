@@ -45,16 +45,12 @@ i highlight atool w3m poppler libcaca
 
 i xorg-xrdb \
 inotify-tools \
-dunst \
 libnotify \
-bash-completion \
 gvim \
 firefox \
-evince \
-nodejs npm
+evince
 
-i python-pip \
-python-six \
+i python-six \
 python-lxml \
 python-jedi \
 python-docopt \
@@ -68,10 +64,7 @@ python-pillow \
 python-cssselect \
 autopep8
 
-i pypy3
-
 i python2-xlib
-i go
 
 i ffmpeg vlc
 i youtube-dl atomicparsley
@@ -85,8 +78,7 @@ the_silver_searcher \
 at \
 acpi \
 udevil \
-ntp \
-phantomjs
+ntp
 
 # mouse stuff
 i xorg-xkill \
@@ -97,23 +89,13 @@ i gnupg \
 pass \
 keybase
 
-i qtox
-
 # presentations
 i impressive
 
 i klavaro
 
-# RSS
-i newsbeuter
-
 # torrent
 i transmission-gtk
-
-# mail
-
-i offlineimap \
-msmtp
 
 # security
 
@@ -124,16 +106,6 @@ i python-keyring
 # replace ugly default font
 i extra/ttf-dejavu
 i powerline-fonts
-
-# disk usage
-
-i ncdu
-
-# iphone / USB
-
-i usbmuxd gvfs-afc \
-tumbler thunar \
-exfat-utils
 
 # image manipulation
 
@@ -177,22 +149,6 @@ extra/texlive-science
 i gnuplot \
 xfig transfig geogebra \
 xorg-xwininfo xorg-xprop
-
-# recoll
-
-i recoll \
-pstotext \
-antiword \
-catdoc \
-unrtf \
-id3lib \
-mutagen python-mutagen \
-python2-pychm \
-perl-image-exiftool \
-aspell-en \
-libxslt \
-djvulibre \
-python2
 
 # lesspipe
 

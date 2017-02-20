@@ -16,64 +16,6 @@ if ! is.wifi.enabled; then
 	execute="$execute"'| map( select( .name != "wireless" ) )'
 fi
 
-if is.ulb.network.connected; then
-	if is.internet.accessible; then
-		prepend='{"name":"ulb network","color":"#85bd85","full_text":" ulb"},'"$prepend"
-		if is.cups.running && is.papercut.running; then
-			prepend='{"name":"ulb printer","color":"#85bd85","full_text":" ulb"},'"$prepend"
-		else
-			prepend='{"name":"ulb printer","color":"#bdbd85","full_text":" ulb"},'"$prepend"
-		fi
-	else
-		prepend='{"name":"ulb network","color":"#bdbd85","full_text":" ulb"},'"$prepend"
-	fi
-fi
-
-mail_count="$(courriel.count)"
-if courriel.running ; then
-	if test "$mail_count" -gt 0; then
-		prepend='{"name":"new mail","color":"#85bdbd","full_text":" '"$mail_count"'"},'"$prepend"
-	fi
-else
-	prepend='{"name":"new mail","color":"#F45D4C","full_text":" '"$mail_count"'"},'"$prepend"
-fi
-
-if courriel.locked ; then
-	prepend='{"name":"mail syncing","color":"#464646","full_text":""},'"$prepend"
-fi
-
-pending_count="$(msmtp-pending)"
-if test "$pending_count" -gt 0; then
-	if msmtp-runqueue-is-running; then
-		prepend='{"name":"pending sent mail","color":"#85bdbd","full_text":" '"$pending_count"'"},'"$prepend"
-	else
-		prepend='{"name":"pending sent mail","color":"#464646","full_text":" '"$pending_count"'"},'"$prepend"
-	fi
-fi
-
-hangouts_status="$(cat "$HOME"'/.cache/hangups/_status')"
-hangouts_type="$(echo "$hangouts_status" | jq -r '.status')"
-if [ "$hangouts_type" = 'error' ]; then
-	prepend='{"name":"new hangouts messages","color":"#F45D4C","full_text":" "},'"$prepend"
-elif [ "$hangouts_type" = 'typing' ]; then
-	hangouts_count="$(echo "$hangouts_status" | jq '.unread')"
-	if [ "$hangouts_count" -gt 0 ]; then
-		prepend='{"name":"new hangouts messages","color":"#85bdbd","full_text":" '"$hangouts_count"'"},'"$prepend"
-	else
-		prepend='{"name":"new hangouts messages","color":"#85bdbd","full_text":""},'"$prepend"
-	fi
-elif [ "$hangouts_type" = 'normal' ]; then
-	hangouts_count="$(echo "$hangouts_status" | jq '.unread')"
-	if [ "$hangouts_count" -gt 0 ]; then
-		prepend='{"name":"new hangouts messages","color":"#85bdbd","full_text":" '"$hangouts_count"'"},'"$prepend"
-	fi
-fi
-
-#rss_count="$(rss.count)"
-#if test "$rss_count" -gt 0; then
-	#prepend='{"name":"new rss","color":"#85bd85","full_text":" '"$rss_count"'"},'"$prepend"
-#fi
-
 volume="$(volume.get)"
 if test "$volume" -lt 50; then
 	if is.volume.on; then

@@ -30,22 +30,7 @@ fi
 
 yaourt -S --needed \
 dmenu2 \
-fasd \
 ttf-font-awesome \
 nerd-fonts-complete \
-solaar \
-ipe \
-astroid \
-pdftk-bin \
-yank-git \
-hangups-git \
-untex \
-git-latexdiff \
 ruby-coderay \
-abunchoftags \
-fisherman \
-bfs \
-ptpython \
-tealdeer-git \
-notes-git \
-python-bibtexparser
+python-arrow

@@ -32,7 +32,6 @@ hide_edge_borders both
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 font pango: Monospace, FontAwesome 8
 
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -50,29 +49,6 @@ bar {
     statusline #FFFFFF
     focused_workspace #85bd85 #85bd85 #151718
     active_workspace #858585 #858585 #151718
-    inactive_workspace #1c1c1c #1c1c1c #AAAAAA
-    urgent_workspace #F45D4C #F45D4C #FFFFFF
-  }
-}
-
-bar {
-  id extra
-  position top
-  status_command ~/.bin/system.status.extra
-
-  bindsym button4 nop
-  bindsym button5 nop
-
-  mode dock
-
-  workspace_buttons no
-  binding_mode_indicator no
-  colors {
-    separator #1c1c1c
-    background #1c1c1c
-    statusline #FFFFFF
-    focused_workspace #85bd85 #85bd85 #151718
-    active_workspace #DCCD69 #DCCD69 #151718
     inactive_workspace #1c1c1c #1c1c1c #AAAAAA
     urgent_workspace #F45D4C #F45D4C #FFFFFF
   }
@@ -198,7 +174,6 @@ mode "shutdown" {
 }
 
 bindsym $mod+Delete mode "shutdown"
-bindsym $mod+XF86Eject mode "shutdown"
 
 
 # resize window (you can also use the mouse for that)
@@ -256,28 +231,11 @@ mode "wifi" {
 
 bindsym $mod+w mode "wifi"
 
-mode "layout" {
-
-        bindsym Shift+D exec laptop.default; mode "default"
-        bindsym f exec laptop.forum.G; mode "default"
-        bindsym d exec laptop.office.duo; mode "default"
-        bindsym s exec laptop.office.single; mode "default"
-        bindsym t exec laptop.talk.displayport; mode "default"
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+y mode "layout"
-
 mode "apps" {
-	bindsym m mode "mode"
 	bindsym i mode "internet"
 	bindsym f mode "files"
 	bindsym g mode "google"
 	bindsym o mode "organization"
-	bindsym t mode "tools"
 	bindsym s mode "system"
 	bindsym a mode "audio"
 	bindsym v mode "video"
@@ -288,15 +246,6 @@ mode "apps" {
 }
 
 bindsym $mod+i mode "apps"
-
-mode "mode" {
-
-        bindsym p exec mobile.mode.plane.toggle; mode "default"
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
 
 mode "internet" {
 
@@ -316,9 +265,7 @@ mode "internet" {
 
 mode "google" {
 
-        bindsym h exec hangouts.hangups; mode "default"
-        bindsym Shift+H exec hangouts; mode "default"
-
+        bindsym h exec hangouts; mode "default"
         bindsym g exec google; mode "default"
         bindsym i exec googleimage; mode "default"
         bindsym s exec googlescholar; mode "default"
@@ -334,38 +281,11 @@ mode "google" {
 }
 
 mode "organization" {
-        bindsym m exec courriel; mode "default"
-        bindsym Shift+M exec gmail; mode "default"
-        bindsym f exec courriel.fetch; mode "default"
-        #bindsym n exec news; mode "default"
-        bindsym n exec notes.menu; mode "default"
-        bindsym h exec habitica; mode "default"
-        bindsym c exec calendar; mode "default"
-        bindsym Shift+C exec calendar.edit; mode "default"
-        bindsym w exec weather; mode "default"
+        bindsym m exec gmail; mode "default"
+        bindsym c exec calendar.edit; mode "default"
 
         bindsym a exec alarm.new.ui; mode "default"
-        bindsym b exec courriel.abook; mode "default"
         bindsym p exec menu.pass; mode "default"
-
-        bindsym s exec scratchpad; mode "default"
-
-        bindsym t exec sncb-nmbs; mode "default"
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-mode "tools" {
-        bindsym p exec terminator -b -x fish -c 'ptpython --vi'; mode "default"
-
-        bindsym b exec bib.ui; mode "default"
-        bindsym Shift+B exec bib.selection.local; mode "default"
-        bindsym c exec clipboard.menu; mode "default"
-        bindsym m exec menu.man; mode "default"
-        bindsym t exec menu.term; mode "default"
-        bindsym o exec oeis.menu; mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -429,8 +349,7 @@ mode "files" {
         bindsym n exec menu.nav; mode "default"
         bindsym o exec menu.open; mode "default"
         bindsym e exec menu.edit; mode "default"
-        bindsym r exec menu.references; mode "default"
-        bindsym p exec menu.pdf; mode "default"
+        bindsym r exec biblio; mode "default"
 
         # back to normal: enter or escape
         bindsym Return mode "default"
@@ -438,59 +357,16 @@ mode "files" {
 }
 
 
-bindsym $mod+u bar mode invisible extra
-bindsym $mod+Shift+U bar mode dock extra
-
-
 # volume
 bindsym XF86AudioRaiseVolume exec volume.up
 bindsym XF86AudioLowerVolume exec volume.down
 bindsym XF86AudioMute exec volume.toggle
-
-# screen brightness
-bindsym XF86MonBrightnessUp exec screen.brightness.up 10
-bindsym XF86MonBrightnessDown exec screen.brightness.down 10
-bindsym Shift+XF86MonBrightnessUp exec screen.brightness.up 1
-bindsym Shift+XF86MonBrightnessDown exec screen.brightness.down 1
-
-# keyboard backlight
-bindsym XF86KbdBrightnessUp exec keyboard.brightness.up 10
-bindsym XF86KbdBrightnessDown exec keyboard.brightness.down 10
-bindsym Shift+XF86KbdBrightnessUp exec keyboard.brightness.up 1
-bindsym Shift+XF86KbdBrightnessDown exec keyboard.brightness.down 1
 
 # print screen
 bindsym --release Print exec screenshot.all
 bindsym --release Shift+Print exec screenshot.selection
 bindsym --release $mod+Print exec screenshot.all+gimp
 bindsym --release $mod+Shift+Print exec screenshot.selection+gimp
-# ... for MacBook Pro
-bindsym --release XF86LaunchA exec screenshot.all
-bindsym --release Shift+XF86LaunchA exec screenshot.selection
-bindsym --release $mod+XF86LaunchA exec screenshot.all+gimp
-bindsym --release $mod+Shift+XF86LaunchA exec screenshot.selection+gimp
-
-# disable/enable touchpad
-bindsym $mod+t exec touchpad.toggle
-
-#wifi
-#bindsym XF86WLAN exec wifi.toggle
-
-# Change the workspace output
-bindsym $mod+plus exec i3.workspace.swap
-bindsym $mod+semicolon move workspace to output right
-bindsym $mod+colon move workspace to output left
-# ... and for US keyboard
-bindsym $mod+question exec i3.workspace.swap
-bindsym $mod+comma move workspace to output right
-bindsym $mod+period move workspace to output left
-
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
-# Show the first scratchpad window
-bindsym $mod+minus scratchpad show
-# Automatically move papercut balance window to the scratchpad.
-for_window [class="biz-papercut-pcng-client-uit-UserClient" title="^Balance for.*"] move scratchpad
 
 # fzf
 for_window [class="^fzf-menu$"] floating enable

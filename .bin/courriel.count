@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-notmuch count 'tag:inbox AND tag:unread'

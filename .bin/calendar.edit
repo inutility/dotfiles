@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-wb --new-window https://calendar.google.com

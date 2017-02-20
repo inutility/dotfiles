@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+DOC="$HOME/pharmacometry/"
+cd "$DOC"
+file=$(find * | grep '\(pdf\|pptx\|ppt\)$' | sed 's:^\./::g' | sort | uniq | dmenu_center \
+--rest -i -t -p 'biblio' -sb '#FF4E50' -l 10)
+
+if [ "$file" != '' ]; then
+	xdg-open "$file"
+fi

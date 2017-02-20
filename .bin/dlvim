@@ -1,4 +1,0 @@
-#!/bin/env sh
-
-wget "$1" -O "$2"
-vim "$2"

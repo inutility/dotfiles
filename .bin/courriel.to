@@ -1,2 +1,0 @@
-#!/bin/env sh
-notmuch-abook export -f email -s name

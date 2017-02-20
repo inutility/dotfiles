@@ -191,13 +191,6 @@ if $install ; then
 
 fi
 
-if $restart ; then
-
-  echo '+ Shutting down services'
-  _do services.off
-
-fi
-
 if $diff ; then
 
   echo '+ Diff dotfiles'
@@ -267,22 +260,12 @@ if $restart ; then
   _do systemctl --user enable ssh-agent
   _do systemctl --user start ssh-agent
 
-  echo '+ Restarting services'
-  _do services.on
-
 fi
 
 if $vim ; then
 
   echo '+ Update vim pluggins'
   vim.update || _exit "$?"
-
-fi
-
-if $fish ; then
-
-  echo '+ Update fish pluggins'
-  fish -c 'fisher up' || _exit "$?"
 
 fi
 

@@ -1,8 +1,4 @@
 
-# Make vim the default editor
-set -x EDITOR "vim"
-set -x VISUAL "vim"
-
 # DOES NOT WORK WELL WITH LAST_CMD_DURATION STUFF
 # Make some commands not show up in history
 # function ignorehistory --on-event fish_preexec

@@ -1,21 +1,3 @@
-function fish_mode_prompt --description 'Displays the current mode'
-
-	switch $fish_bind_mode
-		case default
-			set_color --bold --background red white
-			echo -n '[N]'
-		case insert
-			set_color --bold --background green white
-			echo -n '[I]'
-		case visual
-			set_color --bold --background magenta white
-			echo -n '[V]'
-	end
-	set_color normal
-	echo -n ' '
-
-end
-
 function prompt_git --description 'Git part of the prompt'
 
 	set -l s ''

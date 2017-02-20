@@ -6,7 +6,7 @@
 # example:
 # localectl set-x11-keymap us ... ... caps:swapescape
 # does not work :(
-setxkbmap be
+setxkbmap -layout fr
 setxkbmap -option "caps:swapescape"
 
 # Add `~/.bin` to the `$PATH`

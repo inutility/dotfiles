@@ -8,8 +8,8 @@ set fish_greeting
 # set fish_key_bindings fish_vi_key_bindings
 # fzf_key_bindings
 
-set -g EDITOR vim
-set -g VISUAL vim
+set -g EDITOR "subl3 -n -w"
+set -g VISUAL "subl3 -n -w"
 
 . ~/.config/fish/exports.fish
 . ~/.config/fish/aliases.fish

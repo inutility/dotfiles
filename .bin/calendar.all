@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-watchless 5 calendar._all
