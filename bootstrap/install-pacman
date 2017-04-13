@@ -79,7 +79,8 @@ the_silver_searcher \
 at \
 acpi \
 udevil \
-ntp
+ntp \
+fasd
 
 # mouse stuff
 i xorg-xkill \
