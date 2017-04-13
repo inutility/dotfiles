@@ -269,6 +269,13 @@ if $vim ; then
 
 fi
 
+if $fish ; then
+
+  echo '+ Update fish pluggins'
+  fish -c 'fisher up' || _exit "$?"
+
+fi
+
 if $_wait ; then
   echo '+ Done!'
 fi

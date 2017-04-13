@@ -33,4 +33,5 @@ dmenu2 \
 ttf-font-awesome \
 nerd-fonts-complete \
 ruby-coderay \
-python-arrow
+python-arrow \
+fisherman
