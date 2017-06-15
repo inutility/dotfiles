@@ -1,7 +1,7 @@
 
 [Default Applications]
-text/plain=vim.desktop
-application/javascript=vim.desktop
-application/x-desktop=vim.desktop
+text/plain=subl3.desktop
+application/javascript=subl3.desktop
+application/x-desktop=subl3.desktop
 application/pdf=evince.desktop
 image/vnd.djvu=evince.desktop
