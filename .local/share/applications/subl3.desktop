@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=;
+Comment=Edit file in Vim
+Exec=subl3 %f
+GenericName=Process Viewer
+Hidden=false
+Icon=subl3
+Name=subl3
+Terminal=true
+Type=Application
+Version=1.0
