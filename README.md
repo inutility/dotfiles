@@ -4,13 +4,6 @@
 
 ## Getting started
 
-### Install sak
-
-    mkdir ~/.bin
-    git clone https://github.com/aureooms/sak
-    cd sak
-    make install
-
 ### Clone
 
     git clone https://github.com/aureooms/dotfiles --recursive
