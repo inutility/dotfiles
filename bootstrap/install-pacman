@@ -72,7 +72,7 @@ i youtube-dl atomicparsley
 
 # useful
 i testdisk \
-pstoedit python2-numpy python2-lxml uniconvertor \
+pstoedit python2-numpy python2-lxml \
 inkscape \
 ack \
 the_silver_searcher \
