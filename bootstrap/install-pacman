@@ -145,7 +145,7 @@ extra/texlive-publishers \
 extra/texlive-science
 
 i gnuplot \
-xfig transfig geogebra \
+xfig transfig \
 xorg-xwininfo xorg-xprop
 
 # lesspipe
