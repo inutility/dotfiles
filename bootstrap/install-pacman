@@ -99,7 +99,6 @@ i transmission-gtk
 # security
 
 i openssh
-i python2-keyring
 i python-keyring
 
 # replace ugly default font
